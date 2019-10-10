@@ -1,16 +1,15 @@
 function revealSecretIdentity(realName) {
-  document.getElementById('secretidentity').innerHTML = realName;
+  document.getElementById('secretidentity').innerHTML = realName
 }
 
 function hideSecretIdentity() {
-  document.getElementById('secretidentity').innerHTML = '';
+  document.getElementById('secretidentity').innerHTML = ''
 }
-
 function createHeroBlock(hero) {
   var heroBlock = document.createElement('div')
 
   heroBlock.id = hero.id
-  heroBlock.className = "hero"
+  heroBlock.className = 'hero'
   heroBlock.style.backgroundColor = hero.primaryColor
   heroBlock.style.color = hero.secondaryColor
   heroBlock.innerHTML = hero.codeName
@@ -20,14 +19,14 @@ function createHeroBlock(hero) {
 
 function setupHeroReveal() {
   for (var i = 0; i < heroes.length; i++) {
-    var hero = heroes[i]
+    const hero = heroes[i]
 
-    document.getElementById(hero.id).onmouseover = function () {
-      revealSecretIdentity(hero.realName);
+    document.getElementById(hero.id).onmouseover = function() {
+      revealSecretIdentity(hero.realName)
     }
 
-    document.getElementById(hero.id).onmouseout = function () {
-      hideSecretIdentity();
+    document.getElementById(hero.id).onmouseout = function() {
+      hideSecretIdentity()
     }
   }
 }
@@ -35,10 +34,10 @@ function setupHeroReveal() {
 function setUpHeroBlocks() {
   var allHeroes = document.getElementById('heroes')
 
-  heroes.forEach(function (hero) {
+  heroes.forEach(function(hero) {
     var heroBlock = createHeroBlock(hero)
     allHeroes.appendChild(heroBlock)
-  });
+  })
 }
 
 function loadHeroes() {
